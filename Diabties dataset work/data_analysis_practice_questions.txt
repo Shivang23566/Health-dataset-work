@@ -1,0 +1,505 @@
+================================================================================
+         DATA ANALYSIS PRACTICE & INTERVIEW QUESTIONS
+
+████████████████████████████████████████████████████████████████████████████████
+                        LEVEL 1: BEGINNER
+          (Freshers, Internships, Junior DA Roles — 0-1 yr exp)
+████████████████████████████████████████████████████████████████████████████████
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION A — COMPANY INTERVIEW QUESTIONS (Actually Asked)
+────────────────────────────────────────────────────────────────────────────────
+
+Q1.  What is a dataset? What does each row and column represent in
+     this diabetes.csv file?
+
+Q2.  What is the difference between qualitative and quantitative data?
+     Which columns in this dataset are quantitative?
+
+Q3.  What does "missing values" mean? How would you check for them
+     in this dataset using Python or Excel?
+
+Q4.  What is the difference between mean, median, and mode?
+     Calculate the mean Glucose level from this dataset.
+
+Q5.  What is a CSV file? How do you load it in Python using pandas?
+     Write the code to load diabetes.csv and display first 5 rows.
+
+Q6.  What is the Outcome column representing in this dataset?
+     What kind of variable is it — continuous or categorical?
+
+Q7.  What is data cleaning? Give two examples of dirty data you might
+     find in a health dataset like this one.
+
+Q8.  What is a bar chart vs a histogram? Which one would you use to
+     visualize the distribution of BMI in this dataset and why?
+
+Q9.  What is the difference between structured and unstructured data?
+     Is diabetes.csv structured or unstructured?
+
+Q10. How would you explain this diabetes dataset to a non-technical
+     doctor? What story does the Outcome column tell?
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION B — HANDS-ON PRACTICE QUESTIONS
+────────────────────────────────────────────────────────────────────────────────
+
+P1.  Load diabetes.csv using pandas. Print:
+     - Shape of the dataset (rows × columns)
+     - Column names
+     - Data types of each column
+
+P2.  How many patients have diabetes (Outcome = 1) vs no diabetes
+     (Outcome = 0)? Calculate the percentage of each.
+
+P3.  Find the minimum, maximum, and average value for:
+     - Glucose
+     - BMI
+     - Age
+
+P4.  Are there any zero values in the Glucose, BloodPressure, or BMI
+     columns? Is a glucose of 0 medically possible? What does this tell you?
+
+P5.  Create a histogram of the Age column. What age group has the
+     most patients? What does this distribution look like — normal, skewed?
+
+P6.  Find the average number of Pregnancies for patients with diabetes
+     vs without diabetes. Is there a difference?
+
+P7.  Sort the dataset by Glucose in descending order. Print the top 10
+     rows. What do you observe about their Outcome values?
+
+P8.  Select only female patients above age 40 with BMI > 30. How many
+     rows does this filter give you?
+
+P9.  Create a new column called "Overweight" where BMI > 25 is True
+     and BMI <= 25 is False. Count how many patients are overweight.
+
+P10. Calculate the correlation between Glucose and Outcome. Based on
+     this number alone, what can you say about glucose and diabetes?
+
+
+================================================================================
+
+
+████████████████████████████████████████████████████████████████████████████████
+                       LEVEL 2: INTERMEDIATE
+          (1-3 yrs exp | DA / BI Analyst / Data Analyst Roles)
+████████████████████████████████████████████████████████████████████████████████
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION A — COMPANY INTERVIEW QUESTIONS (Actually Asked)
+────────────────────────────────────────────────────────────────────────────────
+
+Q1.  What is the difference between df.fillna() and df.dropna()?
+     Which approach would you use for the zero values in Insulin, and why?
+     (Hint: 374 patients have Insulin = 0 — is that really "no insulin"?)
+
+Q2.  What is a boxplot? What does it tell you about outliers?
+     If you plotted Insulin using a boxplot, what would you expect to see?
+
+Q3.  What is the difference between correlation and causation?
+     Glucose has a high correlation with Outcome — does that mean
+     glucose CAUSES diabetes?
+
+Q4.  What is feature engineering? Give one example of a new feature
+     you could create from this diabetes dataset that might improve analysis.
+
+Q5.  What is group-by aggregation? Write a SQL or pandas query to find
+     average Glucose grouped by number of Pregnancies.
+
+Q6.  A stakeholder asks: "Which features most strongly predict diabetes?"
+     How would you answer this using only data analysis (no ML yet)?
+
+Q7.  What is the difference between a LEFT JOIN, INNER JOIN, and FULL JOIN?
+     Give a real example using two health-related tables.
+
+Q8.  What is skewness? Check the Insulin column — if it's right-skewed,
+     what does that mean and how do you handle it?
+
+Q9.  What is a heatmap and what does it show? What would a correlation
+     heatmap of this diabetes dataset reveal?
+
+Q10. What is the difference between absolute and percentage change?
+     If average Glucose in diabetic patients is 141 and in non-diabetic
+     it is 109, what is the percentage difference?
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION B — HANDS-ON PRACTICE QUESTIONS
+────────────────────────────────────────────────────────────────────────────────
+
+P1.  Identify columns where 0 is medically impossible (Glucose,
+     BloodPressure, SkinThickness, Insulin, BMI). Replace these zeros
+     with NaN. Now count missing values per column.
+
+P2.  After replacing zeros with NaN (from P1), impute missing values:
+     - Use median imputation for Insulin and SkinThickness (why median?)
+     - Use mean for Glucose and BloodPressure
+     Justify your choice.
+
+P3.  Create a full correlation matrix. Which feature has the highest
+     correlation with Outcome? Which two features are most correlated
+     with each other (multicollinearity risk)?
+
+P4.  Use groupby to answer:
+     - Average BMI by Outcome (diabetic vs non-diabetic)
+     - Average Age by Outcome
+     - Average DiabetesPedigreeFunction by Outcome
+     What patterns do you see?
+
+P5.  Create a new feature: "GlucoseCategory"
+     - Low: Glucose < 100
+     - Normal: 100 <= Glucose < 126
+     - High: Glucose >= 126
+     What percentage of diabetic patients fall in the "High" category?
+
+P6.  Detect outliers in the Insulin column using the IQR method.
+     How many outliers exist? Should you remove them in a health dataset?
+     Justify your answer.
+
+P7.  Create a pivot table showing average Glucose and BMI
+     grouped by Age group (bins: 21-30, 31-40, 41-50, 50+)
+     and Outcome. What insights can you draw?
+
+P8.  Write a SQL query (or pandas equivalent) to find:
+     "Top 5 oldest patients with diabetes who have Glucose > 150"
+     What does this group look like in terms of BMI and Insulin?
+
+P9.  Plot a violin plot comparing BMI distribution between
+     diabetic and non-diabetic patients. How does the shape differ
+     from a simple boxplot in terms of information it provides?
+
+P10. Calculate the diabetes rate (% with Outcome=1) for each of
+     these BMI groups: Underweight (<18.5), Normal (18.5-24.9),
+     Overweight (25-29.9), Obese (>=30). What trend do you observe?
+
+
+================================================================================
+
+
+████████████████████████████████████████████████████████████████████████████████
+                        LEVEL 3: ADVANCED
+          (3-6 yrs exp | Senior DA / Analytics Lead Roles)
+████████████████████████████████████████████████████████████████████████████████
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION A — COMPANY INTERVIEW QUESTIONS (Actually Asked)
+────────────────────────────────────────────────────────────────────────────────
+
+Q1.  What is the difference between MCAR, MAR, and MNAR in the context
+     of missing data? The zeros in this dataset — which category do they
+     fall under and why does it matter for imputation strategy?
+
+Q2.  What is Simpson's Paradox? Give an example where a trend that
+     appears in the full diabetes dataset might reverse when broken
+     down by a subgroup (e.g., age group).
+
+Q3.  Explain class imbalance. This dataset has 500 non-diabetic and
+     268 diabetic patients — is that imbalanced? How does class imbalance
+     affect analysis and what techniques address it (SMOTE, undersampling, etc.)?
+
+Q4.  What is the difference between statistical significance and
+     practical significance? If a t-test shows glucose difference
+     between groups is p < 0.001, does that guarantee it's meaningful?
+
+Q5.  You find that Glucose has a correlation of 0.47 with Outcome,
+     but after controlling for Age and BMI, the partial correlation
+     drops to 0.31. What does this tell you, and how would you
+     communicate this to a non-technical stakeholder?
+
+Q6.  What is A/B testing? Design an A/B test for a healthcare app
+     that sends glucose monitoring reminders. What metrics would
+     you track? What would be your null hypothesis?
+
+Q7.  Explain the Bias-Variance Tradeoff in the context of building
+     a predictive model on this diabetes dataset. When does a model
+     overfit? How would you detect it without running ML formally?
+
+Q8.  What is window function in SQL? Write a query to calculate
+     running average of Glucose ordered by Age over the diabetes dataset.
+
+Q9.  A manager says "BMI is the most important factor for diabetes
+     based on this data." How do you validate or challenge this claim
+     using statistical evidence from the dataset?
+
+Q10. What is multicollinearity? Between Pregnancies and Age
+     (r = 0.54), does this affect your analysis? How do you handle it?
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION B — HANDS-ON PRACTICE QUESTIONS
+────────────────────────────────────────────────────────────────────────────────
+
+P1.  Perform a full statistical comparison between diabetic and
+     non-diabetic groups for ALL 8 features using independent
+     samples t-test. Report the t-statistic, p-value, and whether
+     the difference is statistically significant at α = 0.05.
+     Which features show the strongest separation?
+
+P2.  Build a complete EDA (Exploratory Data Analysis) report for this
+     dataset. It should include:
+     - Shape, types, missing values
+     - Univariate analysis (distribution of each feature)
+     - Bivariate analysis (each feature vs Outcome)
+     - Correlation analysis
+     - At least 3 actionable insights
+
+P3.  Apply log transformation to the Insulin column (which is
+     right-skewed). Plot before and after distributions. Does the
+     transformation make the distribution more normal? How do you
+     check normality formally (Shapiro-Wilk test)?
+
+P4.  The dataset has SkinThickness and Insulin both related to
+     body composition. Create a composite feature using PCA on these
+     two (plus BMI). Does the first principal component explain enough
+     variance to replace all three? Report the explained variance ratio.
+
+P5.  Create a Risk Stratification System using thresholds:
+     - Low Risk: Glucose < 100 AND BMI < 25 AND Age < 40
+     - Medium Risk: (100 <= Glucose < 126) OR (25 <= BMI < 30)
+     - High Risk: Glucose >= 126 OR BMI >= 30 OR Age >= 50
+     What is the diabetes rate within each risk tier?
+
+P6.  Perform cohort analysis: Divide patients into age cohorts
+     (21-30, 31-40, 41-50, 51+). For each cohort, calculate:
+     - Diabetes prevalence
+     - Average Glucose, BMI, Insulin
+     - Average DiabetesPedigreeFunction
+     What pattern emerges across age cohorts?
+
+P7.  Apply KDE (Kernel Density Estimation) plots for Glucose and BMI
+     separately for Outcome=0 and Outcome=1. At what threshold values
+     do the distributions diverge most clearly? How could a doctor
+     use this threshold clinically?
+
+P8.  Detect multivariate outliers using Mahalanobis Distance.
+     Flag the top 10 most "anomalous" patients. Are they more likely
+     to have diabetes? What does this suggest about outlier treatment
+     in a medical context?
+
+P9.  Calculate mutual information between each feature and Outcome.
+     Compare the ranking with the simple Pearson correlation ranking.
+     Which features rank differently, and why? (Hint: MI captures
+     non-linear relationships, Pearson does not)
+
+P10. Build a comprehensive dashboard concept (can be a matplotlib/seaborn
+     multi-panel figure) with:
+     - Diabetes prevalence donut chart
+     - Feature importance bar chart (use mutual information)
+     - Heatmap of correlations
+     - Glucose distribution by Outcome
+     - Risk stratification breakdown
+     Present this as if showing to hospital management.
+
+
+================================================================================
+
+
+████████████████████████████████████████████████████████████████████████████████
+                        LEVEL 4: SENIOR
+          (6+ yrs | Lead Analyst / Analytics Manager / Principal DA)
+████████████████████████████████████████████████████████████████████████████████
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION A — COMPANY INTERVIEW QUESTIONS (Actually Asked)
+────────────────────────────────────────────────────────────────────────────────
+
+Q1.  You are given this diabetes dataset and asked to build a data
+     product for a hospital. Walk me through the end-to-end analytical
+     pipeline — from raw data ingestion to a dashboard that clinical
+     staff can use for early diabetes screening. What are the risks
+     at each stage?
+
+Q2.  This dataset has 768 rows. A junior analyst says "the sample size
+     is too small to draw conclusions." How do you evaluate this claim?
+     What statistical power analysis would you run, and what minimum
+     sample size would you recommend for detecting a 10% difference
+     in diabetes rates between two groups?
+
+Q3.  The hospital asks: "Has the rate of diabetes in our patient
+     population increased over the last 5 years?" This dataset has no
+     date column. How do you redesign the data collection strategy?
+     What analytical framework would you apply for trend analysis?
+
+Q4.  Explain selection bias in the context of this dataset. The Pima
+     Indians dataset is from a very specific population. What are the
+     risks of applying a model trained on this data to a general Indian
+     urban population? How do you detect and correct for distribution shift?
+
+Q5.  A product team wants to launch a "Diabetes Risk Score" feature
+     in their app. How do you convert exploratory insights from this
+     dataset into a production-grade scoring model? What governance,
+     fairness, and explainability concerns would you raise?
+
+Q6.  Walk me through how you would set up a proper experimental design
+     to test whether a new dietary intervention reduces Glucose levels
+     in a high-risk patient group. What is the control, what is the
+     treatment, how do you handle confounders like Age and BMI?
+
+Q7.  What is survival analysis? If the diabetes dataset had a "years
+     until diabetes onset" column, how would Kaplan-Meier curves and
+     Cox Proportional Hazard models be applied? What would the
+     hazard ratio of Glucose tell you?
+
+Q8.  You present your analysis to the board. They ask: "Can we trust
+     these numbers?" How do you explain data quality, confidence intervals,
+     and uncertainty to a non-technical executive audience? Give a
+     specific example using the Insulin column's data quality issues.
+
+Q9.  How do you build a culture of data-driven decision making in a
+     team? One team member insists "BMI alone is enough to predict
+     diabetes." How do you resolve this using data without making it
+     political? What process do you follow?
+
+Q10. This is a classification problem. Explain the tradeoff between
+     Precision and Recall in a medical screening context. Should you
+     optimize for catching all diabetic patients (high recall) or
+     minimizing false alarms (high precision)? What business and
+     ethical consequences follow from each choice?
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION B — HANDS-ON PRACTICE QUESTIONS
+────────────────────────────────────────────────────────────────────────────────
+
+P1.  Design a full data quality framework for this dataset. Score each
+     column on:
+     - Completeness (are there hidden missing values like 0s?)
+     - Validity (are values within medically plausible ranges?)
+     - Consistency (are relationships between columns logical?)
+     - Accuracy (can you verify against known medical literature?)
+     Produce a Data Quality Scorecard as a table with scores 1-5.
+
+P2.  Build a bootstrapped confidence interval for the mean Glucose
+     of diabetic patients (n = 1000 bootstrap samples). Report the
+     95% CI. Now compare it with a t-distribution based CI.
+     When do they diverge, and which should you trust more for this
+     dataset? Why?
+
+P3.  Conduct a full Bayesian analysis (even conceptually if coding):
+     Given that the base rate of diabetes in this population is 34.9%,
+     what is the posterior probability that a patient with Glucose = 160
+     and BMI = 35 has diabetes? Set up the prior, likelihood, and
+     posterior mathematically.
+
+P4.  Simulate a scenario: Assume 5% of Glucose readings in this
+     dataset have a systematic measurement error of +15 units (a
+     faulty glucometer batch). How does this affect:
+     - Average glucose for diabetic vs non-diabetic patients?
+     - The correlation between Glucose and Outcome?
+     - Any threshold-based risk stratification?
+     This is called sensitivity analysis — document your findings.
+
+P5.  Build a "Patient Persona" analysis. Use k-means clustering
+     (k=3 or 4) on the 8 features to identify distinct patient archetypes.
+     Name each cluster clinically (e.g., "Young Low-Risk", "Older
+     Obese High-Risk"). What is the diabetes prevalence in each cluster?
+     How would a hospital use these personas for targeted outreach?
+
+P6.  Create a monitoring framework for this dataset as if it were
+     live production data. Define:
+     - Key metrics to track week-over-week (e.g., % high-glucose patients)
+     - Alert thresholds for data drift (e.g., average BMI shifts > 2 units)
+     - Data quality checks that run on ingestion
+     Document this as an SOP (Standard Operating Procedure).
+
+P7.  Perform a causal inference thought experiment using the
+     Potential Outcomes Framework (Rubin Causal Model):
+     - Treatment: High Glucose (Glucose >= 126)
+     - Outcome: Diabetes (Outcome = 1)
+     - Confounders: Age, BMI, Pregnancies
+     Why is simple correlation insufficient to conclude glucose
+     CAUSES diabetes? What study design would allow causal inference?
+
+P8.  Write a full analytical memo (1-2 pages) addressed to the
+     Chief Medical Officer summarizing:
+     - Key risk factors for diabetes in this population
+     - Subgroups at highest risk
+     - 3 data-driven recommendations for preventive care
+     - Limitations of this analysis
+     Use numbers and visualizations (described in words) to support
+     every claim. Practice translating statistical findings into
+     executive language.
+
+P9.  Design an end-to-end ETL pipeline for this dataset as if it were
+     flowing from a hospital EHR (Electronic Health Record) system:
+     - Extraction: What format would real EHR data come in?
+     - Transformation: What cleaning, validation, and feature
+       engineering steps are automated?
+     - Loading: Where does it land? (Data warehouse schema design)
+     Document the pipeline as a flow diagram with tool choices
+     (e.g., Python, Airflow, BigQuery, dbt).
+
+P10. Ethical Analysis: This dataset is from a specific ethnic group
+     (Pima Indian women). Write a 300-word critical reflection on:
+     - Sampling bias and generalizability
+     - Risk of using this model for other populations
+     - Fairness concerns if this model is deployed in a clinical tool
+     - What additional data would you collect to mitigate bias?
+     This tests your ability to think beyond numbers — a key skill
+     for senior analysts influencing real-world decisions.
+
+
+================================================================================
+                          BONUS: KEY CONCEPTS GLOSSARY
+                  (Quick Reference — Know These Cold)
+================================================================================
+
+STATISTICS
+  - Mean, Median, Mode, Variance, Standard Deviation
+  - Percentile, IQR (Interquartile Range)
+  - Normal Distribution, Skewness, Kurtosis
+  - Correlation (Pearson, Spearman), Causation
+  - Hypothesis Testing: Null Hypothesis, p-value, α level
+  - T-test, Chi-squared test, ANOVA
+  - Confidence Interval, Statistical Power, Effect Size
+
+DATA WRANGLING
+  - Missing Value Types: MCAR, MAR, MNAR
+  - Imputation: Mean, Median, Mode, KNN, Multiple Imputation
+  - Outlier Detection: IQR Method, Z-score, Mahalanobis Distance
+  - Data Normalization vs Standardization (MinMax vs Z-score)
+  - Feature Engineering, Binning, One-Hot Encoding
+
+SQL (Must Know for Interviews)
+  - SELECT, WHERE, GROUP BY, HAVING, ORDER BY
+  - JOINs: INNER, LEFT, RIGHT, FULL OUTER
+  - Window Functions: ROW_NUMBER, RANK, LAG, LEAD, AVG OVER
+  - Subqueries vs CTEs (WITH clause)
+  - CASE WHEN for conditional logic
+
+PYTHON / PANDAS
+  - pd.read_csv(), df.head(), df.describe(), df.info()
+  - df.groupby().agg(), df.pivot_table()
+  - df.fillna(), df.dropna(), df.replace()
+  - df.merge(), df.concat()
+  - Visualization: matplotlib, seaborn (histplot, boxplot, heatmap, scatterplot)
+
+BUSINESS / COMMUNICATION
+  - Translating data to insights (not just numbers)
+  - KPI definition and metric design
+  - Dashboard design principles
+  - Stakeholder storytelling
+  - Data ethics and bias awareness
+
+================================================================================
+                    STUDY ROADMAP (Suggested Order)
+================================================================================
+
+  WEEK 1-2:   Complete all Beginner questions (A + B sections)
+  WEEK 3-4:   Complete all Intermediate questions
+  WEEK 5-6:   Complete Advanced questions — focus on statistics depth
+  WEEK 7-8:   Attempt Senior questions — focus on communication + design
+  ONGOING:    Re-attempt interview questions by speaking out loud
+              (simulate real interview conditions)
+
+  TOOLS TO USE: Python (pandas, seaborn, scipy, sklearn), Jupyter Notebook
+  PLATFORM:     Kaggle (upload dataset, solve in notebook)
+
+================================================================================
+  Created for: Shivang | B.Tech CSE, 6th Sem, IET Bhaddal
+  Dataset: Pima Indians Diabetes (768 rows × 9 columns)
+  Purpose: Data Analysis Learning + Company Interview Preparation
+================================================================================
